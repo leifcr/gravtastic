@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/leifcr/gravtastic.svg)](https://travis-ci.org/leifcr/gravtastic)
+
                   _____                 _            _   _
                  / ____|               | |          | | (_)
                 | |  __ _ __ __ ___   _| |_ __ _ ___| |_ _  ___
@@ -172,7 +174,7 @@ Gravtastic is a mature project. There isn't any active work which needs to be do
 * [Ryan Lewis](http://github.com/c00lryguy)
 * [Arthur Chiu](http://github.com/achiu)
 * [Paul Johnston](http://pajhome.org.uk/crypt/md5/) for his awesome MD5.js implementation.
-
+* [Leif Ringstad](http://github.com/leifcr)
 
 ## License
 
