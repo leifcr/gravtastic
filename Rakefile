@@ -1,4 +1,4 @@
-require 'rubygems/package_task'
+require "bundler/gem_tasks"
 require 'rake/clean'
 require 'rspec/core/rake_task'
 
@@ -11,12 +11,6 @@ def gemspec_file
 end
 
 load(gemspec_file)
-
-Gem::PackageTask.new(@spec) do |t|
-  t.need_tar = true
-  t.need_zip = true
-end
-CLEAN.add 'pkg'
 
 RSpec::Core::RakeTask.new do |t|
   t.rspec_opts = ['--color', '--require ./spec/helper']
