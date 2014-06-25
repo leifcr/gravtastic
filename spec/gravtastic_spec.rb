@@ -12,7 +12,7 @@ describe Gravtastic do
   describe ".is_gravtastic" do
 
     it "includes the methods" do
-      @g.included_modules.should include(Gravtastic::InstanceMethods)
+      expect(@g.included_modules).to include(Gravtastic::InstanceMethods)
     end
 
   end
@@ -20,15 +20,15 @@ describe Gravtastic do
   describe 'default' do
 
     it "options are {:rating => 'PG', :secure => true, :filetype => :png}" do
-      @g.gravatar_defaults.should == {
-        :rating => 'PG',
-        :secure => true,
-        :filetype => :png,
-      }
+      expect(@g.gravatar_defaults).to eq ({
+              :rating => 'PG',
+              :secure => true,
+              :filetype => :png,
+            })
     end
 
     it "source is :email" do
-      @g.gravatar_source.should == :email
+      expect(@g.gravatar_source).to eq(:email)
     end
 
   end
@@ -40,7 +40,7 @@ describe Gravtastic do
       stub(a).email do 'USER@EXAMPLE.COM' end
       b = @g.new
       stub(b).email do 'user@example.com' end
-      a.gravatar_id.should == b.gravatar_id
+      expect(a.gravatar_id).to eq(b.gravatar_id)
     end
 
   end
@@ -53,40 +53,40 @@ describe Gravtastic do
     end
 
     it "makes a pretty URL" do
-      @user.gravatar_url(:secure => false).should == 'http://gravatar.com/avatar/b58996c504c5638798eb6b511e6f49af.png?r=PG'
+      expect(@user.gravatar_url(:secure => false)).to eq('http://gravatar.com/avatar/b58996c504c5638798eb6b511e6f49af.png?r=PG')
     end
 
     it "makes a secure URL" do
-      @user.gravatar_url.should == 'https://secure.gravatar.com/avatar/b58996c504c5638798eb6b511e6f49af.png?r=PG'
+      expect(@user.gravatar_url).to eq('https://secure.gravatar.com/avatar/b58996c504c5638798eb6b511e6f49af.png?r=PG')
     end
 
     it "makes a jpeggy URL" do
-      @user.gravatar_url(:secure => false, :filetype => :jpg).should == 'http://gravatar.com/avatar/b58996c504c5638798eb6b511e6f49af.jpg?r=PG'
+      expect(@user.gravatar_url(:secure => false, :filetype => :jpg)).to eq('http://gravatar.com/avatar/b58996c504c5638798eb6b511e6f49af.jpg?r=PG')
     end
 
     it "makes a saucy URL" do
-      @user.gravatar_url(:secure => false, :rating => 'R').should == 'http://gravatar.com/avatar/b58996c504c5638798eb6b511e6f49af.png?r=R'
+      expect(@user.gravatar_url(:secure => false, :rating => 'R')).to eq('http://gravatar.com/avatar/b58996c504c5638798eb6b511e6f49af.png?r=R')
     end
 
     it "makes a forcedefault URL" do
-      @user.gravatar_url(:secure => false, :forcedefault => true).should == 'http://gravatar.com/avatar/b58996c504c5638798eb6b511e6f49af.png?f=y&r=PG'
+      expect(@user.gravatar_url(:secure => false, :forcedefault => true)).to eq('http://gravatar.com/avatar/b58996c504c5638798eb6b511e6f49af.png?f=y&r=PG')
     end
 
     it "abides to some new fancy feature" do
-      @user.gravatar_url(:secure => false, :extreme => true).should == 'http://gravatar.com/avatar/b58996c504c5638798eb6b511e6f49af.png?extreme=true&r=PG'
+      expect(@user.gravatar_url(:secure => false, :extreme => true)).to eq('http://gravatar.com/avatar/b58996c504c5638798eb6b511e6f49af.png?extreme=true&r=PG')
     end
 
     it "makes a URL from the defaults" do
       stub(@user.class).gravatar_defaults{ {:size => 20, :rating => 'R18', :secure => true, :filetype => :png} }
-      @user.gravatar_url.should == 'https://secure.gravatar.com/avatar/b58996c504c5638798eb6b511e6f49af.png?r=R18&s=20'
+      expect(@user.gravatar_url).to eq('https://secure.gravatar.com/avatar/b58996c504c5638798eb6b511e6f49af.png?r=R18&s=20')
     end
 
     it "makes a URL with the default option" do
-      @user.gravatar_url(:default => 'default.jpg').should == 'https://secure.gravatar.com/avatar/b58996c504c5638798eb6b511e6f49af.png?d=default.jpg&r=PG'
+      expect(@user.gravatar_url(:default => 'default.jpg')).to eq('https://secure.gravatar.com/avatar/b58996c504c5638798eb6b511e6f49af.png?d=default.jpg&r=PG')
     end
 
     it "makes a URL when the default option is a lambda" do
-      @user.gravatar_url(:default => lambda {|u| "#{u.email}.jpg"}).should == 'https://secure.gravatar.com/avatar/b58996c504c5638798eb6b511e6f49af.png?d=user@example.com.jpg&r=PG'
+      expect(@user.gravatar_url(:default => lambda {|u| "#{u.email}.jpg"})).to eq('https://secure.gravatar.com/avatar/b58996c504c5638798eb6b511e6f49af.png?d=user@example.com.jpg&r=PG')
     end
 
   end

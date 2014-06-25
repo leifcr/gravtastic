@@ -21,3 +21,6 @@ CLEAN.add 'pkg'
 RSpec::Core::RakeTask.new do |t|
   t.rspec_opts = ['--color', '--require ./spec/helper']
 end
+
+task :default => :spec
+
