@@ -16,6 +16,7 @@ require './lib/gravtastic/version'
 
   s.has_rdoc = false
 
+  s.add_development_dependency 'rake'
   s.add_development_dependency 'rspec', '~> 3.0.0'
   s.add_development_dependency 'rr', '~> 1.0'
 

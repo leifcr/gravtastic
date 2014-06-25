@@ -7,6 +7,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     diff-lcs (1.2.5)
+    rake (10.1.0)
     rr (1.1.2)
     rspec (3.0.0)
       rspec-core (~> 3.0.0)
@@ -26,5 +27,6 @@ PLATFORMS
 
 DEPENDENCIES
   gravtastic!
+  rake
   rr (~> 1.0)
   rspec (~> 3.0.0)
