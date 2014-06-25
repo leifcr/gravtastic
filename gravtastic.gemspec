@@ -1,13 +1,13 @@
 require './lib/gravtastic/version'
 
 @spec = Gem::Specification.new do |s|
-  s.name    = 'gravtastic'
+  s.name    = 'leifcr-gravtastic'
   s.version = Gravtastic.version
-  s.date    = '2011-08-03'
+  s.date    = '2014-06-25'
 
-  s.author   = 'Chris Lloyd'
-  s.email    = 'christopher.lloyd@gmail.com'
-  s.homepage = 'http://github.com/chrislloyd/gravtastic'
+  s.author   = 'Leif Ringstad'
+  s.email    = 'leifcr@gmail.com'
+  s.homepage = 'http://github.com/leifcr/gravtastic'
 
   s.summary     = 'A Ruby wrapper for Gravatar URLs'
   s.description = s.summary
